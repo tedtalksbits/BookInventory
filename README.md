@@ -1,7 +1,7 @@
 # Book Inventory Manager with API Integration and Local Storage
 
 <center>
-<img src='https://www.svgrepo.com/show/393314/library.svg' height=200 width=200  />
+<img src='https://www.svgrepo.com/show/393314/library.svg' style="background: white; text-align:center;" height=200 width=200  />
 </center>
 
 ### About This Project
@@ -25,9 +25,13 @@ The Book Inventory Manager is a feature-rich web-based Book Inventory Management
 To ensure smooth running of the application, ensure the following dependencies are installed:
 
 [React Query](https://tanstack.com/query/latest): `@tanstack/react-query: ^5.17.9`
+
 [React](https://react.dev/reference/react): `react: ^18.2.0`
+
 [TailwindCSS](https://tailwindcss.com/): `tailwindcss: ^3.4.1`
+
 [Typescript](https://www.typescriptlang.org/): `typescript: ^5.2.2`
+
 [Vite](https://vitejs.dev/): `vite: ^5.0.8`
 
 ### Setup Instructions
