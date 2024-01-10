@@ -1,7 +1,12 @@
-import { Button } from './components/ui/button';
+import { AppProvider } from './providers/app';
+import { AppRoutes } from './routes/AppRoutes';
 
 function App() {
-  return <Button className='bg-red-500'>hello world</Button>;
+  return (
+    <AppProvider>
+      <AppRoutes />
+    </AppProvider>
+  );
 }
 
 export default App;
