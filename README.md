@@ -34,12 +34,14 @@ To ensure smooth running of the application, ensure the following dependencies a
 
 [Vite](https://vitejs.dev/): `vite: ^5.0.8`
 
+see [package.json](package.json) for more details.
+
 ### Setup Instructions
 
 1. **Clone** the Repository: Clone this repository to your local machine.
 
 ```sh
-git clone
+git clone https://github.com/tedtalksbits/BookInventory.git
 ```
 
 2. **Install** Dependencies: Run npm install to install the required dependencies.
@@ -48,7 +50,17 @@ git clone
 npm install
 ```
 
-3. **Start** the Application: Use npm start to run the application on your local server.
+3. **Create .env File**: Create a .env file in the root directory of the project and add the contents of .env-example:
+
+The .env file should contain the following variables:
+
+```sh
+VITE_BOOK_API=...
+VITE_APP_NAME=...
+VITE_APP_LOCAL_STORAGE_KEY=...
+```
+
+4. **Start** the Application: Use npm start to run the application on your local server.
 
 ```sh
 npm run dev
@@ -58,7 +70,9 @@ npm run dev
 
 - Adding Books: To add a book, enter the ISBN number in the provided field and the system will automatically populate the book's details.
 
-- Viewing Inventory: Access your book inventory on the main dashboard, where you can see all the details of your books.
+  - to store the book in your inventory, click the "Add to Library" button.
+
+- Viewing Inventory: Access your book inventory on the main dashboard in the section labeled "Your Books", where you can see all the details of your books.
 
 - Rating Books: Rate each book by clicking on the star rating system.
 
