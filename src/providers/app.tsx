@@ -1,16 +1,24 @@
 import { Button } from '@/components/ui/button';
-import { Loader } from 'lucide-react';
 import { HomeIcon, LoopIcon } from '@radix-ui/react-icons';
 import brokenRobotImg from '@/assets/images/robot-broken.png';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Suspense } from 'react';
 import { Toaster } from 'sonner';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import Loading from '@/components/ui/loading';
 type ErrorFallbackProps = {
   error: Error;
   resetErrorBoundary: (...args: Array<unknown>) => void;
 };
-
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: false,
+    },
+  },
+});
 const ErrorFallback = ({ error, resetErrorBoundary }: ErrorFallbackProps) => {
   return (
     <div className='flex flex-col items-center justify-center h-full space-y-4'>
@@ -36,11 +44,7 @@ const ErrorFallback = ({ error, resetErrorBoundary }: ErrorFallbackProps) => {
 };
 
 const LoadingScreen = () => {
-  return (
-    <div className='flex items-center justify-center h-screen'>
-      <Loader className='animate-spin' />
-    </div>
-  );
+  return <Loading className=' h-screen' />;
 };
 
 export type AppProviderProps = {
@@ -51,7 +55,9 @@ export const AppProvider = ({ children }: AppProviderProps) => {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <Suspense fallback={<LoadingScreen />}>
-        <Router>{children}</Router>
+        <QueryClientProvider client={queryClient}>
+          <Router>{children}</Router>
+        </QueryClientProvider>
       </Suspense>
       <Toaster richColors closeButton />
     </ErrorBoundary>
