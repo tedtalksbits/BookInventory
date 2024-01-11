@@ -30,8 +30,8 @@ export const Rating = ({ maxRatings = 5, onRate, rating }: RatingProps) => {
         return (
           <Star
             className={`w-6 h-6 ${
-              hoveredRating > index ? 'text-primary' : 'text-background'
-            } fill-current cursor-pointer stroke-foreground/80`}
+              hoveredRating > index ? 'text-yellow-500' : 'text-background'
+            } fill-current cursor-pointer stroke-foreground/60`}
             key={index}
             onMouseOver={() => handleMouseOver(ratingValue)}
             onMouseLeave={handleMouseLeave}

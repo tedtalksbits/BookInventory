@@ -29,12 +29,12 @@ export const Book = ({ book }: { book: OpenLibBook }) => {
       <div className='book__content flex items-center flex-col gap-2'>
         <header className='book__header text-left'>
           <h3
-            className='text-lg font-semibold leading-10 whitespace-nowrap overflow-hidden max-w-[14ch] text-ellipsis cursor-default capitalize'
+            className='text-lg font-semibold leading-10 whitespace-nowrap overflow-hidden md:max-w-[16ch] text-ellipsis cursor-default capitalize font-lora'
             title={book.title}
           >
             {book.title}
           </h3>
-          <span className='text-sm leading-3 text-foreground/80'>
+          <span className='text-sm leading-3 text-foreground/80 font-lora'>
             By: {book.author_name?.toString()}
           </span>
         </header>
@@ -51,14 +51,18 @@ export const Book = ({ book }: { book: OpenLibBook }) => {
       <div className='book__action mt-4'>
         {book?.added_at ? (
           <>
-            <div className='flex rating'>
+            <div className='rating my-2'>
               <Rating
                 maxRatings={5}
                 rating={book?.rating}
                 onRate={(rating) => handleRateBook(rating)}
               />
             </div>
-            <Button className='w-full' onClick={handleDeleteBook}>
+            <Button
+              variant='destructive'
+              className='w-full'
+              onClick={handleDeleteBook}
+            >
               Delete
             </Button>
           </>
