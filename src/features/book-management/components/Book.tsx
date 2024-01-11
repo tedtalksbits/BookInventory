@@ -27,16 +27,19 @@ export const Book = ({ book }: { book: OpenLibBook }) => {
   return (
     <article className='col-span-3 p-4 book flex flex-col justify-between animate-fade-in'>
       <div className='book__content flex items-center flex-col gap-2'>
-        <header className='book__header text-left'>
+        <header className='book__header text-left flex flex-col gap-1'>
           <h3
-            className='text-lg font-semibold leading-10 whitespace-nowrap overflow-hidden md:max-w-[16ch] text-ellipsis cursor-default capitalize font-lora'
+            className='text-lg font-semibold md:whitespace-nowrap overflow-hidden md:max-w-[16ch] text-ellipsis cursor-default capitalize font-lora'
             title={book.title}
           >
             {book.title}
           </h3>
-          <span className='text-sm leading-3 text-foreground/80 font-lora'>
+          <span className='text-sm text-foreground font-lora'>
             By: {book.author_name?.toString()}
           </span>
+          <small className='text-[0.7rem] text-foreground/80 font-lora'>
+            ISBN: {book.isbn[0]}
+          </small>
         </header>
         <img
           src={`http://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg?default=false`}
