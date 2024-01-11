@@ -1,15 +1,5 @@
 import { generateUniqueID } from '@/lib/utils';
-import { OpenLibBook } from '../types/book';
-export interface OpenLibBookAPI {
-  getByISBN: (isbn: string) => Promise<OpenLibBook[]>;
-}
-export interface BookAPI {
-  getBooks: () => Promise<OpenLibBook[]>;
-  getBook: (id: string) => Promise<OpenLibBook | null>;
-  addBook: (book: OpenLibBook) => Promise<OpenLibBook>;
-  deleteBook: (id: string) => Promise<void>;
-  updateBook: (book: Partial<OpenLibBook>) => Promise<OpenLibBook>;
-}
+import { BookAPI, OpenLibBook, OpenLibBookAPI } from '../types/book';
 
 export const openLibBookAPI: OpenLibBookAPI = {
   getByISBN: async (isbn: string) => {

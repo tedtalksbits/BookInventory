@@ -10,3 +10,14 @@ export interface OpenLibBook {
   updated_at?: string;
   rating?: number;
 }
+
+export interface OpenLibBookAPI {
+  getByISBN: (isbn: string) => Promise<OpenLibBook[]>;
+}
+export interface BookAPI {
+  getBooks: () => Promise<OpenLibBook[]>;
+  getBook: (id: string) => Promise<OpenLibBook | null>;
+  addBook: (book: OpenLibBook) => Promise<OpenLibBook>;
+  deleteBook: (id: string) => Promise<void>;
+  updateBook: (book: Partial<OpenLibBook>) => Promise<OpenLibBook>;
+}
