@@ -74,6 +74,12 @@
     @apply bg-background text-foreground;
   }
 
+  @media (prefers-color-scheme: dark) {
+    body {
+      @apply dark;
+    }
+  }
+
   .wrapper {
     display: grid;
     grid-template-columns: 1fr min(99ch, 100%) 1fr;
@@ -84,6 +90,18 @@
   .full-bleed {
     width: 100%;
     grid-column: 1 / 4;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
   }
 }
 

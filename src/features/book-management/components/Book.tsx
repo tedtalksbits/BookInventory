@@ -25,7 +25,7 @@ export const Book = ({ book }: { book: OpenLibBook }) => {
   };
 
   return (
-    <article className='col-span-3 p-4 book flex flex-col justify-between'>
+    <article className='col-span-3 p-4 book flex flex-col justify-between animate-fade-in'>
       <div className='book__content flex items-center flex-col gap-2'>
         <header className='book__header text-left'>
           <h3

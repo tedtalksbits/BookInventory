@@ -97,7 +97,7 @@ export const Index = () => {
         </div>
       </section>
       <section className='my-books'>
-        <h3 className='heading'>You Books</h3>
+        <h3 className='heading'>Your Books</h3>
         <div className='my-books__list'>{renderMyBooks()}</div>
       </section>
     </div>
